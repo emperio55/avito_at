@@ -46,13 +46,13 @@ tasks.withType(Test) {
     }
 }
 
-task simple_test(type: Test) {
+task regres_test(type: Test) {
     useJUnitPlatform {
         includeTags("regres")
     }
 }
 
-task remote_test(type: Test) {
+task smoke_test(type: Test) {
     useJUnitPlatform {
         includeTags("smoke")
     }

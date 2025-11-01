@@ -18,7 +18,7 @@ public class TestBase {
 
     @BeforeAll
     static void setupForLaunch() throws MalformedURLException {
-
+        Configuration.browserSize = "1920x1080";
         Configuration.pageLoadStrategy = "eager";
         SelenideLogger.addListener("allure", new AllureSelenide());
         Map<String, Object> prefs = new HashMap<>();
