@@ -36,8 +36,8 @@ dependencies {
 }
 
 tasks.withType(Test) {
+    systemProperties(System.properties)
     useJUnitPlatform()
-
     testLogging {
         lifecycle {
             events "started", "skipped", "failed", "standard_error", "standard_out"
@@ -55,5 +55,11 @@ task regres_test(type: Test) {
 task smoke_test(type: Test) {
     useJUnitPlatform {
         includeTags("smoke")
+    }
+}
+
+task browser_test(type: Test) {
+    useJUnitPlatform {
+        includeTags("browser")
     }
 }
