@@ -14,6 +14,7 @@ public class AvitoAutoTest extends TestBase{
         @Test
         @DisplayName("Открытие раздела Легковые автомобили с главной страницы")
         @Tag("regres")
+        @Tag("browser")
         void openAutoFromMainPage() throws InterruptedException {
             steps.openMainPage();
             naviSteps.openAvitoAutoFromRubricator();
