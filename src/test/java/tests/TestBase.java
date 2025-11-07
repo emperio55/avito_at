@@ -18,6 +18,7 @@ public class TestBase {
 
     @BeforeAll
     static void setupForLaunch() throws MalformedURLException {
+        Configuration.browser = System.getProperty("browser");
         Configuration.browserSize = "1920x1080";
         Configuration.pageLoadStrategy = "eager";
         SelenideLogger.addListener("allure", new AllureSelenide());
@@ -33,6 +34,8 @@ public class TestBase {
                 "enableVideo", true
         ));
         Configuration.browserCapabilities = capabilities;
+
+        SelenideLogger.addListener("allure", new AllureSelenide());
     }
 
     @AfterEach
