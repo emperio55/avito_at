@@ -13,11 +13,7 @@ public class LocationTest extends TestBase {
     @Test
         @DisplayName("Изменение города")
         @Tag("regres")
-        @Tag("browser")
         void changeCityTest() throws InterruptedException {
-        String browser = System.getProperty("browser", "chrome");
-        System.out.println(browser);
-            steps.openMainPage();
             steps.removeCookiesBar();
             steps.clickRegion();
             steps.inputRegion("Омск");

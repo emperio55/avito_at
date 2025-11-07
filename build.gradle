@@ -27,7 +27,6 @@ dependencies {
             'org.junit.jupiter:junit-jupiter-api:6.0.0',
             'com.codeborne:selenide:7.11.1',
             'io.qameta.allure:allure-selenide:2.30.0',
-//            "com.github.javafaker:javafaker:1.0.2",
             'org.slf4j:slf4j-simple:2.0.17',
             'org.aspectj:aspectjweaver:1.9.25'
     )
@@ -36,31 +35,24 @@ dependencies {
 
 }
 
-tasks.withType(Test) {
-    systemProperties(System.properties)
+tasks.withType(Test).configureEach {
     useJUnitPlatform()
+    systemProperties(System.getProperties())
+
     testLogging {
-        lifecycle {
-            events "started", "skipped", "failed", "standard_error", "standard_out"
-            exceptionFormat "short"
-        }
+        events "passed", "skipped", "failed", "standardOut", "standardError"
+        exceptionFormat "full"
     }
 }
 
-task regres_test(type: Test) {
+tasks.register('regres', Test) {
     useJUnitPlatform {
         includeTags("regres")
     }
 }
 
-task smoke_test(type: Test) {
+tasks.register('smoke', Test) {
     useJUnitPlatform {
         includeTags("smoke")
-    }
-}
-
-task browser_test(type: Test) {
-    useJUnitPlatform {
-        includeTags("browser")
     }
 }

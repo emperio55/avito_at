@@ -6,25 +6,17 @@ import com.codeborne.selenide.logevents.SelenideLogger;
 import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
-import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.remote.DesiredCapabilities;
-
-import java.net.MalformedURLException;
-import java.util.HashMap;
 import java.util.Map;
 
 public class TestBase {
-    static ChromeOptions options = new ChromeOptions();
-
     @BeforeAll
-    static void setupForLaunch() throws MalformedURLException {
+    static void setupForLaunch(){
+        Configuration.baseUrl = "https://www.avito.ru";
         Configuration.browser = System.getProperty("browser");
         Configuration.browserSize = "1920x1080";
         Configuration.pageLoadStrategy = "eager";
         SelenideLogger.addListener("allure", new AllureSelenide());
-        Map<String, Object> prefs = new HashMap<>();
-        prefs.put("profile.default_content_setting_values.notifications", 2);
-        options.setExperimentalOption("prefs", prefs);
 
         Configuration.remote = System.getProperty("remoteWDurl");
 
@@ -34,8 +26,6 @@ public class TestBase {
                 "enableVideo", true
         ));
         Configuration.browserCapabilities = capabilities;
-
-        SelenideLogger.addListener("allure", new AllureSelenide());
     }
 
     @AfterEach
