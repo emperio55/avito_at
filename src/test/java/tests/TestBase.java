@@ -22,20 +22,18 @@ public class TestBase {
         Configuration.pageLoadStrategy = "eager";
         SelenideLogger.addListener("allure", new AllureSelenide());
         Map<String, Object> prefs = new HashMap<>();
-        prefs.put("profile.default_content_setting_values.notifications", 2); // 2 - запрет
+        prefs.put("profile.default_content_setting_values.notifications", 2);
         options.setExperimentalOption("prefs", prefs);
-        Configuration.remote = "https://user1:1234@selenoid.autotests.cloud/wd/hub";
+
+        Configuration.remote = System.getProperty("remoteWDurl");
+
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setCapability("selenoid:options", Map.<String, Object>of(
                 "enableVNC", true,
                 "enableVideo", true
         ));
-//        WebDriverRunner.getWebDriver().manage().addCookie(new Cookie("cookie_accepted", "true"));
         Configuration.browserCapabilities = capabilities;
-        // Указание Selenide использовать эти опции
-//        Configuration.browserCapabilities = options;
     }
-
 
     @AfterEach
     void addAttachments(){
