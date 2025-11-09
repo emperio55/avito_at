@@ -14,7 +14,8 @@ public class TestBase {
     static void setupForLaunch(){
         Configuration.baseUrl = "https://www.avito.ru";
         Configuration.browser = System.getProperty("browser");
-        Configuration.browserSize = "1920x1080";
+        Configuration.browserVersion = System.getProperty("browserVersion");
+        Configuration.browserSize = System.getProperty("browserResolution", "1920x1080");
         Configuration.pageLoadStrategy = "eager";
         SelenideLogger.addListener("allure", new AllureSelenide());
 

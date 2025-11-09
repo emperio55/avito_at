@@ -1,6 +1,5 @@
 package tests;
 
-import WebSteps.MainSteps;
 import WebSteps.NaviSteps;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;

@@ -19,7 +19,7 @@ public class MainSteps {
 
     @Step("Открыть главную страницу")
     public void openMainPage(){
-        open("https://www.avito.ru/");
+        open("/");
     };
 
     @Step("Клик по региону")

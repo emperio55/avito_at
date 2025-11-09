@@ -13,7 +13,7 @@ public class LocationTest extends TestBase {
     @Test
         @DisplayName("Изменение города")
         @Tag("regres")
-        void changeCityTest() throws InterruptedException {
+        void changeCityTest(){
             steps.removeCookiesBar();
             steps.clickRegion();
             steps.inputRegion("Омск");
