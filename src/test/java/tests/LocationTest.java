@@ -14,6 +14,7 @@ public class LocationTest extends TestBase {
         @DisplayName("Изменение города")
         @Tag("regres")
         void changeCityTest(){
+            steps.openMainPage();
             steps.removeCookiesBar();
             steps.clickRegion();
             steps.inputRegion("Омск");
