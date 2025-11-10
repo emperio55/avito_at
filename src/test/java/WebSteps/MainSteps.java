@@ -50,7 +50,7 @@ public class MainSteps {
         location.shouldHave(Condition.text(region));
     };
 
-    @Step("Проверка выбранного города")
+    @Step("Принять куки")
     public void removeCookiesBar () {
         buttonAgreeCookies.shouldBe(Condition.visible).click();
     }
