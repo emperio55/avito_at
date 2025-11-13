@@ -1,19 +1,18 @@
 {
   "base": {
-    "logo": "",
-    "project": "",
-    "environment": "",
+    "project": "avito_at",
+    "environment": "qa.guru",
     "comment": "",
-    "reportLink": "",
-    "language": "ru",
-    "allureFolder": "",
-    "enableChart": false,
+    "reportLink": "https://jenkins.autotests.cloud/job/lesson11_tgNotifier/",
+    "language": "en",
+    "allureFolder": "build/allure-report/",
+    "enableChart": true,
     "enableSuitesPublishing": false,
     "customData": {}
   },
   "telegram": {
-    "token": "",
-    "chat": "",
+    "token": "8286714834:AAECE1BvP7FEdJd5Hw9g6hJOxlWeKC7n7eM",
+    "chat": "-1003102780408",
     "topic": "",
     "replyTo": "",
     "templatePath": "/templates/telegram.ftl"
